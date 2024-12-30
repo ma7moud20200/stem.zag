@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> محمود ابراهيم </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .password-container {
+            display: flex;
+            justify-content: flex-start;
+            padding: 10px;
+            background-color: #000000;
+        }
+
+        .password-container button {
+            background-color: #e1e1e1;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .password-container button:hover {
+            background-color: #96c49a;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
+
+        .suggested-section {
+            background-color: #f9dcdc;
+            border: 2px solid #d67c7c;
+            border-radius: 10px;
+            padding: 10px;
+            width: 300px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .suggested-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .priority-section {
+            background-color: #d3e9f4;
+            border: 2px solid #74a9d8;
+            border-radius: 10px;
+            padding: 10px;
+            width: 300px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .priority-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .today-section {
+            background-color: #f1f7d2;
+            border: 2px solid #a2cf81;
+            border-radius: 10px;
+            padding: 10px;
+            width: 300px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .today-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .current-section {
+            background-color: #fff5e1;
+            border: 2px solid #f0c164;
+            border-radius: 10px;
+            padding: 10px;
+            width: 300px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .current-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section h3 {
+            text-align: center;
+            background-color: #4caf7d;
+            color: white;
+            margin: -10px -10px 10px -10px;
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .section input {
+            width: calc(100% - 20px);
+            margin: 5px 10px;
+            padding: 5px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+
+        .section input:focus {
+            border-color: #4caf7d;
+        }
+
+        .section button {
+            background-color: #bfebeb;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .section button:hover {
+            background-color: #96c49a;
+        }
+
+        .task-list {
+            list-style: none;
+            padding: 0;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .task-list li {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            background-color: #d87c9f;
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .task-list li:hover {
+            background-color: #f1b1d1;
+        }
+
+        .task-list li span {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .delete-btn {
+            background-color: #c43329;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .delete-btn:hover {
+            background-color: #e0221f;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section {
+                width: 90%;
+                margin-bottom: 15px;
+            }
+
+            .header {
+                font-size: 20px;
+                padding: 8px;
+            }
+
+            .section h3 {
+                font-size: 18px;
+            }
+
+            .section input, .section button {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            .task-list li {
+                padding: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                font-size: 18px;
+                padding: 6px;
+            }
+
+            .section h3 {
+                font-size: 16px;
+            }
+
+            .section input, .section button {
+                font-size: 12px;
+                padding: 6px;
+            }
+
+            .task-list li {
+                padding: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="password-container">
+        <button onclick="showPasswordPrompt()">كلمة السر</button>
+    </div>
+
+    <div id="passwordPrompt" style="display:none; padding: 10px; background-color: #fff; position: absolute; top: 0%; left: 50%; transform: translateX(-50%); box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+        <label for="password">أدخل كلمة السر:</label>
+        <input type="password" id="password" placeholder="كلمة السر">
+        <button onclick="checkPassword()">تأكيد</button>
+        <button onclick="closePasswordPrompt()">إلغاء</button>
+    </div>
+
+    <div class="container">
+        <div class="section suggested-section">
+            <h3>المشاريع المقترحة</h3>
+            <input type="text" id="suggestedTask" placeholder="أضف مهمة">
+            <button onclick="addTask('suggested')">إضافة</button>
+            <ul class="task-list" id="suggestedTasks"></ul>
+        </div>
+
+        <div class="section priority-section">
+            <h3>المشاريع الحالية ذات أولوية</h3>
+            <input type="text" id="priorityTask" placeholder="أضف مهمة">
+            <button onclick="addTask('priority')">إضافة</button>
+            <ul class="task-list" id="priorityTasks"></ul>
+        </div>
+
+        <div class="section today-section">
+            <h3>شغل اليوم</h3>
+            <input type="text" id="todayTask" placeholder="أضف مهمة">
+            <button onclick="addTask('today')">إضافة</button>
+            <ul class="task-list" id="todayTasks"></ul>
+        </div>
+
+        <div class="section current-section">
+            <h3>شغلي الحالي</h3>
+            <input type="text" id="currentTask" placeholder="أضف مهمة">
+            <button onclick="addTask('current')">إضافة</button>
+            <ul class="task-list" id="currentTasks"></ul>
+        </div>
+    </div>
+
+    <script>
+        let taskCounters = {
+            suggested: 1,
+            priority: 1,
+            today: 1,
+            current: 1
+        };
+
+        let passwordEntered = false;
+
+        function showPasswordPrompt() {
+            document.getElementById('passwordPrompt').style.display = 'block';
+        }
+
+        function closePasswordPrompt() {
+            document.getElementById('passwordPrompt').style.display = 'none';
+        }
+
+        function checkPassword() {
+            const enteredPassword = document.getElementById('password').value;
+            const correctPassword = "0159";
+
+            if (enteredPassword === correctPassword) {
+                passwordEntered = true;
+                alert('تم التحقق من كلمة السر بنجاح');
+                closePasswordPrompt();
+            } else {
+                alert('كلمة السر غير صحيحة');
+            }
+        }
+
+        function addTask(section) {
+            if (!passwordEntered) {
+                alert('من فضلك أدخل كلمة السر أولاً');
+                return;
+            }
+
+            const taskInput = document.getElementById(`${section}Task`);
+            const taskList = document.getElementById(`${section}Tasks`);
+            const taskValue = taskInput.value.trim();
+
+            if (taskValue !== '') {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+                    <span>${taskCounters[section]} - ${taskValue} <br> ${new Date().toLocaleString()}</span>
+                    <button class="delete-btn" onclick="deleteTask(this, '${section}')">حذف</button>
+                `;
+                taskList.appendChild(listItem);
+                saveTasks(section);
+                taskCounters[section]++;
+                taskInput.value = '';
+            }
+        }
+
+        function deleteTask(button, section) {
+            button.parentElement.remove();
+            saveTasks(section);
+        }
+
+        function saveTasks(section) {
+            const taskList = document.getElementById(`${section}Tasks`);
+            const tasks = [];
+            taskList.querySelectorAll('li span').forEach(task => {
+                tasks.push(task.innerText);
+            });
+            localStorage.setItem(`${section}Tasks`, JSON.stringify(tasks));
+        }
+
+        function loadTasks() {
+            ['suggested', 'priority', 'today', 'current'].forEach(section => {
+                const taskList = document.getElementById(`${section}Tasks`);
+                const storedTasks = JSON.parse(localStorage.getItem(`${section}Tasks`)) || [];
+
+                storedTasks.forEach((task, index) => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `
+                        <span>${index + 1} - ${task}</span>
+                        <button class="delete-btn" onclick="deleteTask(this, '${section}')">حذف</button>
+                    `;
+                    taskList.appendChild(listItem);
+                });
+                taskCounters[section] = storedTasks.length + 1;
+            });
+        }
+
+        window.onload = loadTasks;
+    </script>
+</body>
+</html>

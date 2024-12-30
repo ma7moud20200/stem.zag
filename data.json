@@ -1,0 +1,32 @@
+{
+    "password": "0159",
+    "suggestedTasks": [
+      {
+        "id": 1,
+        "task": "Task example for suggested tasks",
+        "timestamp": "2024-12-30T10:00:00"
+      }
+    ],
+    "priorityTasks": [
+      {
+        "id": 1,
+        "task": "Task example for priority tasks",
+        "timestamp": "2024-12-30T11:00:00"
+      }
+    ],
+    "todayTasks": [
+      {
+        "id": 1,
+        "task": "Task example for today tasks",
+        "timestamp": "2024-12-30T12:00:00"
+      }
+    ],
+    "currentTasks": [
+      {
+        "id": 1,
+        "task": "Task example for current tasks",
+        "timestamp": "2024-12-30T13:00:00"
+      }
+    ]
+  }
+  
